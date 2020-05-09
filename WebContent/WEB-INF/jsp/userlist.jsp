@@ -25,7 +25,7 @@
 					 
 					 <input type="hidden" name="pageIndex" value="1"/>
 					 <input	value="查 询" type="submit" id="searchbutton">
-			  <%--  <a href="${ctx}/user/add.html" >添加用户</a> --%>
+			  		<a href="${ctx}/user/add.html" >添加用户1</a> 
 				    <a href="${ctx}/user/useradd.html" >添加用户</a> 
 					<a href="${ctx}/user/rolelist.html" >显示用户角色</a>
 				</form>

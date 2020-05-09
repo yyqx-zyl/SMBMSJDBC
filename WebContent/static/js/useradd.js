@@ -7,7 +7,8 @@ var birthday = null;
 var userRole = null;
 var addBtn = null;
 var backBtn = null;
-
+var errorInfo=null;
+var idPicPath=null;
 
 $(function(){
 	userCode = $("#userCode");
@@ -19,6 +20,8 @@ $(function(){
 	userRole = $("#userRole");
 	addBtn = $("#add");
 	backBtn = $("#back");
+	errorInfo = $("#errorInfo");
+	idPicPath = $("#idPicPath");
 	//初始化的时候，要把所有的提示信息变为：* 以提示必填项，更灵活，不要写在页面上
 	userCode.next().html("*");
 	userName.next().html("*");
@@ -27,7 +30,15 @@ $(function(){
 	phone.next().html("*");
 	birthday.next().html("*");
 	userRole.next().html("*");
-	
+	//判断errorInfo里面的数据是否为空
+	if (errorInfo.val()==null || errorInfo.val()=="") {
+		//为font元素添加内容
+		idPicPath.next().html("* 上传文件的大小不能超过1000k " +
+				"上传文件的类型是jpg、png、gif" );
+				
+	}else{
+		idPicPath.next().html(errorInfo.val());
+	}
 	$.ajax({
 		type:"GET",//请求类型
 		url:path+"/jsp/user.do",//请求的url
@@ -152,7 +163,7 @@ $(function(){
 	addBtn.bind("click",function(){
 		/*if(userCode.attr("validateStatus") != "true"){
 			userCode.blur();
-		}else*/ if(userName.attr("validateStatus") != "true"){
+		}else if(userName.attr("validateStatus") != "true"){
 			userName.blur();
 		}else if(userPassword.attr("validateStatus") != "true"){
 			userPassword.blur();
@@ -164,11 +175,11 @@ $(function(){
 			phone.blur();
 		}/*else if(userRole.attr("validateStatus") != "true"){
 			userRole.blur();
-		}*/else{
+		}else{*/
 			if(confirm("是否确认提交数据")){
 				$("#userForm").submit();
 			}
-		}
+		/*}*/
 	});
 	
 	backBtn.on("click",function(){

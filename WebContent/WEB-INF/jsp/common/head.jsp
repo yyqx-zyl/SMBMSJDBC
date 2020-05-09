@@ -17,7 +17,7 @@
     <header class="publicHeader">
         <h1>超市订单管理系统</h1>
         <div class="publicHeaderR">
-            <p><span>下午好！</span><span style="color: #fff21b"> ${user.userName }</span> , 欢迎你！</p>
+            <p><span>下午好！</span><span style="color: #fff21b"> ${loginuser.userName }</span> , 欢迎你！</p>
             <a href="${ctx }/user/logout.html">退出</a>
         </div>
     </header>
@@ -40,5 +40,5 @@
              </ul>
          </nav>
      </div>
-     <input type="hidden" id="path" name="path" value="${ctx }/static/"/>
+     <input type="hidden" id="path" name="path" value="${ctx }"/>
      <input type="hidden" id="referer" name="referer" value="<%=request.getHeader("Referer")%>"/>

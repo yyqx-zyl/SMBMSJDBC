@@ -19,7 +19,7 @@ $(function(){
 	userRole.next().html("*");
 	
 	
-	$.ajax({
+	/*$.ajax({
 		type:"GET",//请求类型
 		url:path+"/jsp/user.do",//请求的url
 		data:{method:"getrolelist"},//请求参数
@@ -45,7 +45,7 @@ $(function(){
 		error:function(data){//当访问时候，404，500 等非200的错误状态码
 			validateTip(userRole.next(),{"color":"red"},imgNo+" 获取用户角色列表error",false);
 		}
-	});
+	});*/
 	
 	
 	userName.on("focus",function(){
@@ -96,11 +96,11 @@ $(function(){
 		userName.blur();
 		phone.blur();
 		birthday.blur();
-		userRole.blur();
+		/*userRole.blur();*/
 		if(userName.attr("validateStatus") == "true" 
 			&& phone.attr("validateStatus") == "true"
 			&& birthday.attr("validateStatus") == "true"
-			&& userRole.attr("validateStatus") == "true"){
+			/*&& userRole.attr("validateStatus") == "true"*/){
 			if(confirm("是否确认要提交数据？")){
 				$("#userForm").submit();
 			}

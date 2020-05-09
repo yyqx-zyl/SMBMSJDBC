@@ -7,9 +7,8 @@
             <span>用户管理页面 >> 用户修改页面</span>
         </div>
         <div class="providerAdd">
-        <form id="userForm" name="userForm" method="post" action="${ctx }/jsp/user.do">
-			<input type="hidden" name="method" value="modifyexe">
-			<input type="hidden" name="uid" value="${user.id }"/>
+        <form id="userForm" name="userForm" method="post" action="${ctx }/user/modifysave.html">
+			<input type="hidden" name="id" value="${user.id }"/>
 			 <div>
                     <label for="userName">用户名称：</label>
                     <input type="text" name="userName" id="userName" value="${user.userName }"> 
@@ -50,7 +49,26 @@
                     <label >用户角色：</label>
                     <!-- 列出所有的角色分类 -->
 					<input type="hidden" value="${user.userRole }" id="rid" />
-					<select name="userRole" id="userRole"></select>
+					<!-- <select name="userRole" id="userRole"></select> -->
+					<select name="userRole" id="userRole">
+						<c:choose>
+							<c:when test="${user.userRole==1 }">
+								<option value="1" selected="selected">系统管理员</option>
+								<option value="2" >经理</option>
+								<option value="3" >普通员工</option>
+							</c:when>
+							<c:when test="${user.userRole==2 }">
+								<option value="1" >系统管理员</option>
+								<option value="2" selected="selected">经理</option>
+								<option value="3" >普通员工</option>
+							</c:when>
+							<c:when test="${user.userRole==3 }">
+								<option value="1" >系统管理员</option>
+								<option value="2" >经理</option>
+								<option value="3" selected="selected">普通员工</option>
+							</c:when>
+						</c:choose>
+					</select>
         			<font color="red"></font>
                 </div>
 			 <div class="providerAddBtn">

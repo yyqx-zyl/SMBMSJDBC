@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/common/head.jsp"%>
+<%@taglib uri="http://www.springframework.org/tags/form"  prefix="fm"%>
 <div class="right">
         <div class="location">
             <strong>你现在所在的位置是:</strong>
@@ -8,6 +9,7 @@
         </div>
         <div class="providerAdd">
             <form id="userForm" name="userForm" method="post" 
+            				enctype="multipart/form-data"
             				action="${ctx }/user/usersave.html">
 				<input type="hidden" name="method" value="add">
                 <!--div的class 为error是验证错误，ok是验证成功-->
@@ -16,11 +18,13 @@
                     <input type="text" name="userCode" id="userCode" value=""> 
 					<!-- 放置提示信息 -->
 					<font color="red"></font>
+					<fm:errors path="userCode"/>
                 </div>
                 <div>
                     <label for="userName">用户名称：</label>
                     <input type="text" name="userName" id="userName" value=""> 
 					<font color="red"></font>
+					<fm:errors path="userName"/>
                 </div>
                 <div>
                     <label for="userPassword">用户密码：</label>
@@ -63,6 +67,12 @@
 						<option value="3" selected="selected">普通员工</option>
 					</select>
 	        		<font color="red"></font>
+                </div>
+                <div>
+                   <input type="hidden" value="${error }" id="errorInfo"/>
+                   <label for="a_idPicPath">用户证件照：</label>
+                   <input type="file" name="a_idPicPath" id="a_idPicPath" />
+                   <font color="red"></font>
                 </div>
                 <div class="providerAddBtn">
                     <input type="button" name="add" id="add" value="保存" >

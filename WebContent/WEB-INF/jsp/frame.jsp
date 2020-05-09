@@ -3,7 +3,7 @@
     <div class="right">
         <img class="wColck" src="${ctx}/static/images/clock.jpg" alt=""/>
         <div class="wFont">
-            <h2>${user.userName }</h2>
+            <h2>${loginuser.userName }</h2>
             <p>欢迎来到超市订单管理系统!</p>
         </div>
     </div>

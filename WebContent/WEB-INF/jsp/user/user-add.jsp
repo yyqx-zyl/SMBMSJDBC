@@ -15,11 +15,15 @@
 	-->
 	<fm:form method="post" modelAttribute="user">
 		<!-- 添加表单元素 -->
+		<fm:errors path="userCode"/><br/>
 		用户编码：<fm:input path="userCode"/><br/>
+		<fm:errors path="userName"/><br/>
 		用户名称：<fm:input path="userName"/><br/>
+		<fm:errors path="userPassword"/><br/>
 		用户密码：<fm:password path="userPassword"/><br/>
 		用户性别：<fm:radiobutton path="gender" value="1"/>男
  				  <fm:radiobutton path="gender" value="2"/>女<br/>
+ 		<fm:errors path="birthday"/><br/>
 		出生日期：<fm:input path="birthday" Class="Wdate" id="birthday"
 					readonly="readonly" onclick="WdatePicker();"/><br/>
 		用户电话：<fm:input path="phone" /><br/>

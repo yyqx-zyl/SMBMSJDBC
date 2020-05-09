@@ -1,6 +1,6 @@
 var path = $("#path").val();
-var imgYes = "<img width='15px' src='"+path+"/images/y.png' />";
-var imgNo = "<img width='15px' src='"+path+"/images/n.png' />";
+var imgYes = "<img width='15px' src='"+path+"/static/images/y.png' />";
+var imgNo = "<img width='15px' src='"+path+"/static/images/n.png' />";
 /**
  * 提示信息显示
  * element:显示提示信息的元素（font）
